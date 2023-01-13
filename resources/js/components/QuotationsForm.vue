@@ -1,8 +1,8 @@
 <template>
-  <div class="container mb-4" ref="top" data-app>
-    <div class="row justify-content-center">
-      <div class="col-md-10 col-12">
-        <div class="card-body shadow-lg p-5">
+  <v-container class="mb-4" ref="top" data-app>
+    <v-row class="justify-content-center">
+      <v-col cols="12" md="10" sm="12">
+        <v-card class="card-body shadow-lg p-5">
           <alert
             :text="textAlert"
             :event="alertEvent"
@@ -18,7 +18,7 @@
                   <!-- Name -->
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
-                      label="Nombre"
+                      label="Name"
                       v-model.trim="$v.user.name.$model"
                       :validation="$v.user.name"
                       validationTextType="default"
@@ -35,7 +35,7 @@
                   <!-- Email -->
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
-                      label="Correo electrónico"
+                      label="Email Address"
                       v-model.trim="$v.user.email.$model"
                       :validation="$v.user.email"
                       validationTextType="none"
@@ -52,19 +52,34 @@
                   <!-- Phone -->
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
-                      label="Teléfono"
+                      label="Phone"
                       v-model="$v.user.phone.$model"
                       :validation.sync="$v.user.phone"
                       validationTextType="only-numbers"
-                      :mask="'####-####'"
                       :validationsInput="{
                         required: true,
-                        minLength: false,
-                        maxLength: false,
+                        minLength: true,
+                        maxLength: true,
                       }"
                     />
                   </v-col>
                   <!-- Phone -->
+                  <!-- Area -->
+                  <v-col cols="12" xs="12" sm="12" md="12">
+                    <base-input
+                      label="Area"
+                      v-model="$v.user.area.$model"
+                      :validation.sync="$v.user.area"
+                      validationTextType="only-numbers"
+                      type="number"
+                      :validationsInput="{
+                        required: true,
+                        minLength: true,
+                        maxLength: true,
+                      }"
+                    />
+                  </v-col>
+                  <!-- Area -->
                 </v-row>
                 <!-- Form -->
                 <v-row>
@@ -79,17 +94,17 @@
                       class="btn btn-quotes text-capitalize fs-5 w-100"
                       style=""
                     >
-                      SEND!
+                      SEND
                     </v-btn>
                   </v-col>
                 </v-row>
               </v-container>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 
@@ -100,30 +115,21 @@ import {
   minLength,
   maxLength,
   email,
-  helpers,
-  sameAs,
 } from "vuelidate/lib/validators";
 
 export default {
   data() {
     return {
-      typePassword: "password",
-      optionId: "DUI",
-      optionsId: ["DUI"],
       textAlert: "",
       alertEvent: "",
       counterAlert: 0,
+      showAlert: false,
       user: {
-        name: "Leonel",
-        last_name: "Lopez",
-        email: "lopezleonel192@gmail.com",
-        dui: "12345678-3",
-        phone: "1234-5678",
-        password: "Leonel23",
-        password_confirmation: "Leonel23",
+        name: "",
+        email: "",
+        phone: "",
+        area: "",
       },
-      showTextPassword: "Mostrar contraseña",
-      showAlert: true,
     };
   },
   validations: {
@@ -133,48 +139,27 @@ export default {
         minLength: minLength(1),
         maxLength: maxLength(150),
       },
-      last_name: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(500),
-      },
       email: {
         required,
         email,
       },
       phone: {
         required,
+        minLength: minLength(1),
+        maxLength: maxLength(15),
       },
-      password: {
+      area: {
         required,
-        minLength: minLength(8),
-        maxLength: maxLength(13),
-        isValidPassword: helpers.regex(
-          "isValidPassword",
-          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,13}$/
-        ),
+        minLength: minLength(1),
+        maxLength: maxLength(10),
       },
-      password_confirmation: {
-        required,
-        sameAsPassword: sameAs("password"),
-      },
-      dui: {
-        required,
-        isValidDui: helpers.regex("isValidDui", /[0-9]{8}-[0-9]/),
-      },
-    },
-  },
-  watch: {
-    optionId(val) {
-      this.user.dui = "";
-      this.$v.$reset();
     },
   },
   methods: {
     async save() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.updateAlert(true, "Campos obligatorios.", "fail");
+        this.updateAlert(true, "Required fields.", "fail");
         return;
       }
 
@@ -205,10 +190,6 @@ export default {
       }
 
       this.$refs.top.scrollIntoView();
-    },
-
-    showPassword(e) {
-      this.typePassword = e.show;
     },
 
     updateAlert(show = false, text = "Alerta", event = "success") {

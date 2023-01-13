@@ -40,20 +40,20 @@
           v-if="validation.$error && validationsInput.required"
           class="pt-0"
         >
-          <p class="mb-0 mt-1">
-            <i class="material-icons">error_outline</i> Campo requerido.
+          <p class="mb-0 mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> Required field.
           </p>
         </v-row>
         <v-row v-if="validationsInput.minLength && !validation.minLength">
-          <p class="pl-0 mt-1">
-            <i class="material-icons">error_outline</i> {{ min }} carácter
-            mínimo.
+          <p class="pl-0 mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> {{ min }} characters
+            minimum.
           </p>
         </v-row>
         <v-row v-if="validationsInput.maxLength && !validation.maxLength">
-          <p class="pl-0 pr-0 mt-1">
-            <i class="material-icons">error_outline</i> {{ max }} caracteres
-            máximo.
+          <p class="pl-0 pr-0 mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> {{ max }} characters
+            maximum.
           </p>
         </v-row>
         <v-row v-if="validationsInput.minValue && !validation.minValue">
@@ -108,9 +108,8 @@
           </p>
         </v-row>
         <v-row v-if="validationsInput.email && !validation.email">
-          <p class="mt-1">
-            <i class="material-icons">error_outline</i> Formato de correo
-            electrónico inválido.
+          <p class="mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> Invalid e-mail format.
           </p>
         </v-row>
         <v-row

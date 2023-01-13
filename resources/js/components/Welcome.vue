@@ -231,30 +231,28 @@
         <!-- /.Card -->
       </div>
     </div>
-    <div class="margin-curve">
-      <!-- Quotations -->
-      <div class="py-20">
-        <div class="container" id="cotizaciones">
-          <div class="d-flex flex-column container pt-lg-20">
-            <!-- Title -->
-            <div class="text-center mb-3">
-              <h3 class="fs-1">Quotations</h3>
-            </div>
-            <!-- /.Title -->
-            <div class="text-gray-700 text-center fw-normal fs-5">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br />
-              Inventore, animi dolorum dolore aut doloremque asperiores tempore
-              eius libero.
-            </div>
+    <!-- Quotations -->
+    <div class="pt-5" id="quotations">
+      <div class="container">
+        <div class="d-flex flex-column container pt-lg-20">
+          <!-- Title -->
+          <div class="text-center mb-3">
+            <h3 class="fs-1">Quotations</h3>
+          </div>
+          <!-- /.Title -->
+          <div class="text-gray-700 text-center fw-normal fs-5">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br />
+            Inventore, animi dolorum dolore aut doloremque asperiores tempore
+            eius libero.
           </div>
         </div>
       </div>
-      <!-- Quotations -->
-
-      <!-- Form -->
-      <quotations-form />
-      <!-- /.Form -->
     </div>
+    <!-- Quotations -->
+
+    <!-- Form -->
+    <quotations-form />
+    <!-- /.Form -->
   </div>
 </template>
 
