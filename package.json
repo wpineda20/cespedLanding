@@ -26,6 +26,7 @@
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@babel/preset-env": "^7.16.8",
+        "fslightbox-vue": "^2.0.1",
         "javascript-obfuscator": "^4.0.0",
         "v-mask": "^2.3.0",
         "vue-toastr": "^2.1.2",

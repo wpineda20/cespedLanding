@@ -69,35 +69,57 @@
               <div class="card-images">
                 <div class="row">
                   <div class="col-lg-6">
-                    <a href="" data-fslightbox="lightbox-basic">
-                      <v-img
-                        src="/stock/600x600/img-23.jpg"
-                        class="rounded overlay"
-                      ></v-img>
-                    </a>
+                    <v-img
+                      style="cursor: pointer"
+                      @click="img1 = !img1"
+                      src="/stock/600x600/img-23.jpg"
+                      class="rounded overlay cursor-pointer"
+                    ></v-img>
+                    <FsLightbox
+                      :toggler="img1"
+                      :sources="['/stock/600x600/img-23.jpg']"
+                    />
                   </div>
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-6">
                         <v-img
+                          style="cursor: pointer"
+                          @click="img2 = !img2"
                           src="/stock/600x600/img-22.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img2"
+                          :sources="['/stock/600x600/img-22.jpg']"
+                        />
                       </div>
                       <div class="col-lg-6">
                         <v-img
+                          style="cursor: pointer"
+                          @click="img3 = !img3"
                           src="/stock/600x600/img-21.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img3"
+                          :sources="['/stock/600x600/img-21.jpg']"
+                        />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-12">
                         <v-img
+                          style="cursor: pointer"
+                          @click="img4 = !img4"
                           src="/stock/600x600/img-20.jpg"
                           class="rounded"
                           height="250"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img4"
+                          :sources="['/stock/600x600/img-20.jpg']"
+                        />
                       </div>
                     </div>
                   </div>
@@ -114,32 +136,56 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <v-img
+                          @click="img5 = !img5"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-3.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img5"
+                          :sources="['/stock/600x600/img-3.jpg']"
+                        />
                       </div>
                       <div class="col-lg-6">
                         <v-img
+                          @click="img6 = !img6"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-4.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img6"
+                          :sources="['/stock/600x600/img-4.jpg']"
+                        />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-12">
                         <v-img
+                          @click="img7 = !img7"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-5.jpg"
                           class="rounded"
                           height="250"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img7"
+                          :sources="['/stock/600x600/img-5.jpg']"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <v-img
+                      @click="img8 = !img8"
+                      style="cursor: pointer"
                       src="/stock/600x600/img-2.jpg"
                       class="rounded"
                     ></v-img>
+                    <FsLightbox
+                      :toggler="img8"
+                      :sources="['/stock/600x600/img-2.jpg']"
+                    />
                   </div>
                 </div>
               </div>
@@ -152,32 +198,56 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <v-img
+                      @click="img9 = !img9"
+                      style="cursor: pointer"
                       src="/stock/600x600/img-7.jpg"
                       class="rounded"
                     ></v-img>
+                    <FsLightbox
+                      :toggler="img9"
+                      :sources="['/stock/600x600/img-7.jpg']"
+                    />
                   </div>
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-6">
                         <v-img
+                          @click="img10 = !img10"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-8.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img10"
+                          :sources="['/stock/600x600/img-8.jpg']"
+                        />
                       </div>
                       <div class="col-lg-6">
                         <v-img
+                          @click="img11 = !img11"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-9.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img11"
+                          :sources="['/stock/600x600/img-9.jpg']"
+                        />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-12">
                         <v-img
+                          @click="img12 = !img12"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-10.jpg"
                           class="rounded"
                           height="250"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img12"
+                          :sources="['/stock/600x600/img-10.jpg']"
+                        />
                       </div>
                     </div>
                   </div>
@@ -194,32 +264,56 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <v-img
+                          @click="img13 = !img13"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-13.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img13"
+                          :sources="['/stock/600x600/img-13.jpg']"
+                        />
                       </div>
                       <div class="col-lg-6">
                         <v-img
+                          @click="img14 = !img14"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-14.jpg"
                           class="rounded"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img14"
+                          :sources="['/stock/600x600/img-14.jpg']"
+                        />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-12">
                         <v-img
+                          @click="img15 = !img15"
+                          style="cursor: pointer"
                           src="/stock/600x600/img-15.jpg"
                           class="rounded"
                           height="250"
                         ></v-img>
+                        <FsLightbox
+                          :toggler="img15"
+                          :sources="['/stock/600x600/img-15.jpg']"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <v-img
+                      @click="img16 = !img16"
+                      style="cursor: pointer"
                       src="/stock/600x600/img-12.jpg"
                       class="rounded"
                     ></v-img>
+                    <FsLightbox
+                      :toggler="img16"
+                      :sources="['/stock/600x600/img-12.jpg']"
+                    />
                   </div>
                 </div>
               </div>
@@ -257,9 +351,31 @@
 </template>
 
 <script>
+import FsLightbox from "fslightbox-vue";
 import QuotationsForm from "./QuotationsForm.vue";
 export default {
-  components: { QuotationsForm },
+  components: { QuotationsForm, FsLightbox },
+
+  data() {
+    return {
+      img1: false,
+      img2: false,
+      img3: false,
+      img4: false,
+      img5: false,
+      img6: false,
+      img7: false,
+      img8: false,
+      img9: false,
+      img10: false,
+      img11: false,
+      img12: false,
+      img13: false,
+      img14: false,
+      img15: false,
+      img16: false,
+    };
+  },
 };
 </script>
 
