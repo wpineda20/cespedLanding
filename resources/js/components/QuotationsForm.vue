@@ -90,10 +90,10 @@
               </v-container>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 
@@ -104,8 +104,6 @@ import {
   minLength,
   maxLength,
   email,
-  helpers,
-  sameAs,
 } from "vuelidate/lib/validators";
 import quotationApi from "../apis/quotationApi";
 import BaseTextArea from "./base-components/BaseTextArea.vue";
@@ -139,6 +137,8 @@ export default {
       },
       phone: {
         required,
+        minLength: minLength(1),
+        maxLength: maxLength(15),
       },
       address: {
         required,

@@ -34,7 +34,7 @@
         <aside class="animate__animated animate__faster aside">
             <div class="top">
                 <div class="logo">
-                    <img src="{{ asset('logos/logo.svg') }}" alt="" />
+                    <img src="{{ asset('logos/landing-logo-n.png') }}" alt="" />
                 </div>
                 <div class="close close-btn">
                     <a href="#">
@@ -60,17 +60,17 @@
                         <h3>Ajustes</h3>
                     </a>
 
+                    {{-- Administration --}}
                     <li class="dropdown-sidebar">
                         <a href="#" class="option-menu">
                             <span class="material-icons">settings</span>
-                            <h3>Administración</h3>
+                            <h3>Administration</h3>
                         </a>
                         <ul class="sub-menu animate__animated animate__faster animate__fadeIn">
                             <li><a href="{{ url('/role') }}">Roles</a></li>
                             <li><a href="{{ url('/user') }}">Usuarios</a></li>
                         </ul>
                     </li>
-
                     <a href="{{ route('logout') }}" class="option-menu"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <span class="material-icons">logout</span>

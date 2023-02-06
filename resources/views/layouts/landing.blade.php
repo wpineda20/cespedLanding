@@ -21,10 +21,12 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Favicon -->
-    {{--
-    <link rel="icon" href="{{ asset('img/Favicon.png') }}"> --}}
+
+    <link rel="icon" href="{{ asset('logos/landing-logo-n.png') }}">
     @yield('css')
 
     @yield('header')
@@ -50,7 +52,7 @@
                     <span class="material-icons">photo_library</span>
                     <h3>Galery</h3>
                 </a>
-                <a href="/#" class="active option-menu">
+                <a href="#quotations" class="active option-menu">
                     <span class="material-icons">monetization_on</span>
                     <h3>Quotations</h3>
                 </a>
@@ -89,7 +91,7 @@
                             </a>
                         </div>
                         <div class="user">
-                            <a href="#cotizaciones">
+                            <a href="#quotations">
                                 {{-- <span class="material-icons">person</span> --}}
                                 <span class="fs-5">Quotations</span>
                             </a>
@@ -112,7 +114,7 @@
                         </span>
                     </h1>
                     <div class="hero-button p-4">
-                        <a href="#cotizaciones" class="btn btn-quotes fs-5 mt-4" style="padding: 0.5rem 2rem;">See
+                        <a href="#quotations" class="btn btn-quotes fs-5 mt-4" style="padding: 0.5rem 2rem;">See
                             Quotations</a>
                     </div>
                 </div>
@@ -131,11 +133,21 @@
 
 
         <!-- Footer  -->
-        <footer class="landing-bg-dark">
-            <div class="footer-title">
-                <h5>GrassLanding &copy 2022</h5>
+        <footer class="landing-bg-dark" style="height:10rem">
+            <div class="footer-item">
+                <div class="footer-title mb-2">
+                    <h5>GrassLanding &copy 2022</h5>
+                </div>
             </div>
-            <span class="footer-subtitle">All rights reserved.</span>
+            <span class="footer-subtitle mb-2">All rights reserved.</span>
+            <div class="icon-list">
+                <a href="https://www.facebook.com/" target="_blank" class=""><img src="{{ asset('img/FB-L.svg') }}"
+                        alt="facebook" height="25" width="25" /></a>
+                <a href="https://www.youtube.com/" target="_blank" class=""><img src="{{ asset('img/YT-L.svg') }}"
+                        alt="youtube" height="25" width="25" /></a>
+                <a href="https://www.instagram.com/" target="_blank" class=""><img src="{{ asset('img/IG-L.svg') }}"
+                        alt="instagram" height="25" width="25" /></a>
+            </div>
         </footer>
         <!-- Footer  -->
     </div>

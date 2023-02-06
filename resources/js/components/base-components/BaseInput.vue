@@ -39,18 +39,18 @@
           v-if="validation.$error && validation.$params.required"
           class="pt-0"
         >
-          <p class="mb-0 mt-1">
-            <i class="material-icons">error_outline</i> Campo requerido.
+          <p class="mb-0 mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> Required field.
           </p>
         </v-row>
         <v-row v-if="validation.$params.url && !validation.url">
-          <p class="pl-0 mt-1">
+          <p class="pl-0 mt-1" style="color: #ff5252">
             <i class="material-icons">error_outline</i> Formato de enlace no
             válido.
           </p>
         </v-row>
         <v-row v-if="validation.$params.minLength && !validation.minLength">
-          <p class="pl-0 mt-1">
+          <p class="pl-0 mt-1" style="color: #ff5252">
             <i class="material-icons">error_outline</i> {{ min }} carácter
             mínimo.
           </p>
@@ -114,9 +114,8 @@
           </p>
         </v-row>
         <v-row v-if="validation.$params.email && !validation.email">
-          <p class="mt-1">
-            <i class="material-icons">error_outline</i> Formato de correo
-            electrónico inválido.
+          <p class="mt-1" style="color: #ff5252">
+            <i class="material-icons">error_outline</i> Invalid e-mail format.
           </p>
         </v-row>
         <v-row
