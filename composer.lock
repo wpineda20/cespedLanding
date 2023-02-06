@@ -2181,16 +2181,16 @@
         },
         {
             "name": "leolopez/crudgenerator",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leolopez48/crudgenerator.git",
-                "reference": "4aed53fe63a964a9b4e5e5cda9ab13d7b110ed53"
+                "reference": "16a03a2b8fda83627be8614d454d9ec3141a3696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leolopez48/crudgenerator/zipball/4aed53fe63a964a9b4e5e5cda9ab13d7b110ed53",
-                "reference": "4aed53fe63a964a9b4e5e5cda9ab13d7b110ed53",
+                "url": "https://api.github.com/repos/leolopez48/crudgenerator/zipball/16a03a2b8fda83627be8614d454d9ec3141a3696",
+                "reference": "16a03a2b8fda83627be8614d454d9ec3141a3696",
                 "shasum": ""
             },
             "type": "library",
@@ -2219,9 +2219,9 @@
             "description": "Generates crud for Laravel",
             "support": {
                 "issues": "https://github.com/leolopez48/crudgenerator/issues",
-                "source": "https://github.com/leolopez48/crudgenerator/tree/1.0.0"
+                "source": "https://github.com/leolopez48/crudgenerator/tree/1.0.2"
             },
-            "time": "2022-06-23T15:50:56+00:00"
+            "time": "2022-06-30T23:37:03+00:00"
         },
         {
             "name": "leolopez/encrypt",

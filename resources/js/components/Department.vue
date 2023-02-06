@@ -43,7 +43,7 @@
                 >
                   <v-text-field
                     dense
-                    label="Buscar"
+                    label="Search"
                     outlined
                     type="text"
                     class=""
@@ -133,7 +133,7 @@
                         rounded
                         @click="save"
                       >
-                        Guardar
+                        Save
                       </v-btn>
 
                       <v-btn
@@ -141,7 +141,7 @@
                         rounded
                         @click="close"
                       >
-                        Cancelar
+                        Cancel
                       </v-btn>
                     </v-col>
                   </v-row>
@@ -168,7 +168,7 @@
                       rounded
                       @click="closeDelete"
                     >
-                      Cancelar
+                      Cancel
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -209,7 +209,7 @@ export default {
       { text: "NOMBRE", value: "department_name" },
       { text: "MINÚSCULAS", value: "min_dpto" },
       { text: "MAYÚSCULAS", value: "may_dpto" },
-      { text: "ACCIONES", value: "actions", sortable: false },
+      { text: "ACTIONS", value: "actions", sortable: false },
     ],
     records: [],
     recordsFiltered: [],
@@ -261,7 +261,7 @@ export default {
   //Validations
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nuevo registro" : "Editar registro";
+      return this.editedIndex === -1 ? "New record" : "Edit record";
     },
   },
 

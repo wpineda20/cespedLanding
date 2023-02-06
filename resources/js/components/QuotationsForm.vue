@@ -1,8 +1,8 @@
 <template>
-  <v-container class="mb-4" ref="top" data-app>
-    <v-row class="justify-content-center">
-      <v-col cols="12" md="10" sm="12">
-        <v-card class="card-body shadow-lg p-5">
+  <div class="container mb-4" ref="top" data-app>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-12">
+        <div class="card-body shadow-lg p-5 bg-white">
           <alert
             :text="textAlert"
             :event="alertEvent"
@@ -10,7 +10,8 @@
             @show-alert="updateAlert($event)"
             class="mb-2"
           />
-          <div class="auth">
+
+          <div>
             <div data-app>
               <v-container width="100%">
                 <!-- Form -->
@@ -19,15 +20,9 @@
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
                       label="Name"
-                      v-model.trim="$v.user.name.$model"
-                      :validation="$v.user.name"
+                      v-model.trim="$v.quotation.name.$model"
+                      :validation="$v.quotation.name"
                       validationTextType="default"
-                      :validationsInput="{
-                        required: true,
-                        format: false,
-                        minLength: true,
-                        maxLength: true,
-                      }"
                     />
                   </v-col>
                   <!-- Name -->
@@ -35,16 +30,10 @@
                   <!-- Email -->
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
-                      label="Email Address"
-                      v-model.trim="$v.user.email.$model"
-                      :validation="$v.user.email"
+                      label="E-mail"
+                      v-model.trim="$v.quotation.email.$model"
+                      :validation="$v.quotation.email"
                       validationTextType="none"
-                      :validationsInput="{
-                        required: true,
-                        minLength: false,
-                        maxLength: false,
-                        email: true,
-                      }"
                     />
                   </v-col>
                   <!-- Email -->
@@ -53,33 +42,33 @@
                   <v-col cols="12" xs="12" sm="12" md="12">
                     <base-input
                       label="Phone"
-                      v-model="$v.user.phone.$model"
-                      :validation.sync="$v.user.phone"
+                      v-model="$v.quotation.phone.$model"
+                      :validation.sync="$v.quotation.phone"
                       validationTextType="only-numbers"
-                      :validationsInput="{
-                        required: true,
-                        minLength: true,
-                        maxLength: true,
-                      }"
                     />
                   </v-col>
                   <!-- Phone -->
-                  <!-- Area -->
+
+                  <!-- Address -->
                   <v-col cols="12" xs="12" sm="12" md="12">
-                    <base-input
-                      label="Area"
-                      v-model="$v.user.area.$model"
-                      :validation.sync="$v.user.area"
-                      validationTextType="only-numbers"
-                      type="number"
-                      :validationsInput="{
-                        required: true,
-                        minLength: true,
-                        maxLength: true,
-                      }"
+                    <base-text-area
+                      label="Address"
+                      v-model="$v.quotation.address.$model"
+                      :validation.sync="$v.quotation.address"
                     />
                   </v-col>
-                  <!-- Area -->
+                  <!-- Address -->
+
+                  <!-- Field size -->
+                  <v-col cols="12" xs="12" sm="12" md="12">
+                    <base-input
+                      label="Field size (ft)"
+                      v-model="$v.quotation.field_size.$model"
+                      :validation.sync="$v.quotation.field_size"
+                      validationTextType="only-numbers"
+                    />
+                  </v-col>
+                  <!-- Field size -->
                 </v-row>
                 <!-- Form -->
                 <v-row>
@@ -116,24 +105,27 @@ import {
   maxLength,
   email,
 } from "vuelidate/lib/validators";
+import quotationApi from "../apis/quotationApi";
+import BaseTextArea from "./base-components/BaseTextArea.vue";
 
 export default {
+  components: { BaseTextArea },
   data() {
     return {
       textAlert: "",
       alertEvent: "",
-      counterAlert: 0,
-      showAlert: false,
-      user: {
-        name: "",
-        email: "",
-        phone: "",
-        area: "",
+      quotation: {
+        name: "Leonel",
+        email: "lopezleonel192@gmail.com",
+        phone: "1234-5678",
+        address: "1234-5678",
+        field_size: 500,
       },
+      showAlert: false,
     };
   },
   validations: {
-    user: {
+    quotation: {
       name: {
         required,
         minLength: minLength(1),
@@ -148,48 +140,37 @@ export default {
         minLength: minLength(1),
         maxLength: maxLength(15),
       },
-      area: {
+      address: {
         required,
-        minLength: minLength(1),
-        maxLength: maxLength(10),
       },
+      field_size: {
+        required,
+        maxLength: maxLength(100),
+      },
+    },
+  },
+  watch: {
+    optionId(val) {
+      this.quotation.dui = "";
+      this.$v.$reset();
     },
   },
   methods: {
     async save() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.updateAlert(true, "Required fields.", "fail");
+        this.updateAlert(true, "Fields required.", "fail");
         return;
       }
 
-      //Creating user
-      const res = await axios.post(`/register`, this.user).catch((error) => {
-        this.textAlert = "No fue posible crear el registro.";
-
-        if (error.response.data.errors.email) {
-          this.textAlert = error.response.data.errors.email[0];
-        }
-
-        if (error.response.data.errors.dui) {
-          this.textAlert = error.response.data.errors.dui[0];
-        }
-
-        this.updateAlert(true, this.textAlert, "fail");
-        this.$refs.top.scrollIntoView();
+      //Send quotation
+      const { data } = quotationApi.post(null, this.quotation).catch((err) => {
+        this.updateAlert(true, "Quotation couldn't be sent.", "fail");
       });
 
-      if (res.data.length == []) {
-        this.updateAlert(true, "Usuario creado correctamente.", "success");
-
-        setTimeout(() => {
-          window.location = "/home";
-        }, 3000);
-      } else {
-        this.updateAlert(true, "El usuario no pudo ser creado.", "fail");
+      if (data.success) {
+        this.updateAlert(true, "Quotation sent.", "fail");
       }
-
-      this.$refs.top.scrollIntoView();
     },
 
     updateAlert(show = false, text = "Alerta", event = "success") {

@@ -12,7 +12,7 @@
       @change="$emit('change', validation.$model)"
     ></v-autocomplete>
     <v-row
-      v-if="validation.$error && validationsInput.required"
+      v-if="validation.$error && validation.$params.required"
       class="pt-0 orange-text"
     >
       <p class="mb-0 mt-1">

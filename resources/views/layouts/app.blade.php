@@ -16,7 +16,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ mix('js/sidebar.js') }}" defer></script>
     @auth
-    <script src="{{ mix('js/dropdown.js') }}" defer></script>
+        <script src="{{ mix('js/dropdown.js') }}" defer></script>
     @endauth
 
     <!-- Styles -->
@@ -45,42 +45,40 @@
 
             <div class="sidebar">
                 @auth
-                {{-- <a href="#" class="active option-menu"> --}}
+                    {{-- <a href="#" class="active option-menu"> --}}
                     <a href="/home" class="option-menu">
-                        <span class="material-icons">dashboard</span>
-                        <h3>Dashboard</h3>
+                        <span class="material-icons">receipt_long</span>
+                        <h3>Quotations</h3>
+                    </a>
+                    {{-- <a href="/customer" class="option-menu">
+                        <span class="material-icons">person</span>
+                        <h3>Clientes</h3>
+                    </a> --}}
+
+                    <a href="/settings" class="option-menu">
+                        <span class="material-icons">settings</span>
+                        <h3>Ajustes</h3>
                     </a>
 
                     {{-- Administration --}}
                     <li class="dropdown-sidebar">
-                        <a href="#" class=" option-menu">
+                        <a href="#" class="option-menu">
                             <span class="material-icons">settings</span>
                             <h3>Administration</h3>
                         </a>
                         <ul class="sub-menu animate__animated animate__faster animate__fadeIn">
-                            <li><a href="{{ url('/role') }}">Quotations</a></li>
                             <li><a href="{{ url('/role') }}">Roles</a></li>
-                            <li><a href="{{ url('/user') }}">Users</a></li>
+                            <li><a href="{{ url('/user') }}">Usuarios</a></li>
                         </ul>
                     </li>
-                    {{-- Administration --}}
-
-                    {{-- <a href="#" class="option-menu">
-                        <span class="material-icons">receipt_long</span>
-                        <h3>Ordenes</h3>
-                    </a>
-                    <a href="#" class="option-menu">
-                        <span class="material-icons">settings</span>
-                        <h3>Ajustes</h3>
-                    </a>
                     <a href="{{ route('logout') }}" class="option-menu"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <span class="material-icons">logout</span>
                         <h3>Cerrar sesión</h3>
-                    </a> --}}
+                    </a>
 
-                    @endauth
-                    @guest
+                @endauth
+                @guest
                     <a href="/login" class="active option-menu">
                         <span class="material-icons">login</span>
                         <h3>Iniciar sesión</h3>
@@ -90,7 +88,7 @@
                         <span class="material-icons"></span>
                         <h3></h3>
                     </a>
-                    @endguest
+                @endguest
             </div>
         </aside>
 
@@ -105,12 +103,12 @@
                             </a>
                         </div>
                         <div class="title">
-                            {{-- <h1 style="color: black">GrassLanding</h1> --}}
+                            <h1 style="color: black">{{ config('app.name') }}</h1>
                         </div>
                     </div>
                     <div class="nav-right">
                         @auth
-                        {{-- <div class="user">
+                            {{-- <div class="user">
                             <a href="#">
                                 <span class="material-icons">person</span>
                             </a>
@@ -120,29 +118,30 @@
                                 <span class="material-icons">notifications</span>
                             </a>
                         </div> --}}
-                        <div class="user d-none d-md-block d-lg-block d-xl-block">
-                            <a href="#" class="user-btn">
-                                <img src="/img/sheen.webp" alt="" />
-                                <span class="material-icons">expand_more</span>
-                            </a>
-                            <div class="dropdown-list animate__animated animate__faster">
-                                <ul>
-                                    <li class="profile-nav">
-                                        <img class="mx-auto mb-2" src="/img/sheen.webp" alt="avatar" />
-                                        <h2 class="text-center">{{ auth()->user()->name }}</h2>
-                                        <h4 class="text-muted text-center">Admin</h4>
-                                        <hr />
-                                    </li>
-                                    <li class="p-0">
-                                        <a href="{{ route('logout') }}" class="option"
-                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                </ul>
+                            <div class="user d-none d-md-block d-lg-block d-xl-block">
+                                <a href="#" class="user-btn">
+                                    <img src="/img/sheen.webp" alt="" />
+                                    <span class="material-icons">expand_more</span>
+                                </a>
+                                <div class="dropdown-list animate__animated animate__faster">
+                                    <ul>
+                                        <li class="profile-nav">
+                                            {{-- <img class="mx-auto" src="/img/sheen.webp" alt="avatar" /> --}}
+                                            <h2 class="text-center">{{ auth()->user()->name }}</h2>
+                                            <h4 class="text-muted text-center">Administrator</h4>
+                                            <hr />
+                                        </li>
+                                        <li class="p-0">
+                                            <a href="{{ route('logout') }}" class="option"
+                                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Cerrar
+                                                sesión</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         @endauth
                     </div>
                 </div>
@@ -155,9 +154,9 @@
         <!-- Footer  -->
         <footer>
             <div class="footer-title">
-                <h5 style="color: black">ERP &copy 2022</h5>
+                <h5 style="color: black">{{ config('app.name') }} &copy {{ date('Y') }}</h5>
             </div>
-            <span class="text-muted">Todos los derechos reservados.</span>
+            <span class="text-muted">All rights reserved.</span>
         </footer>
         <!-- Footer  -->
     </div>

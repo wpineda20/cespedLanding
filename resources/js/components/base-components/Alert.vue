@@ -98,10 +98,10 @@ export default {
 
 <style scoped>
 .alert-success {
-  background-color: #12CE5D;
+  background-color: #4880ff;
 }
 
 .alert-fail {
-  background-color: #ff5252;
+  background-color: #f3a723;
 }
 </style>
