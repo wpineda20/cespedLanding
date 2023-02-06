@@ -90,10 +90,10 @@
               </v-container>
             </div>
           </div>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
