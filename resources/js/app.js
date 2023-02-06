@@ -58,12 +58,12 @@ Vue.config.productionTip = true;
 Vue.config.devtools = true;
 
 export default new Vuetify({
-    lang: {
-        locales: {
-            es,
-        },
-        current: "es",
-    },
+    // lang: {
+    //     locales: {
+    //         es,
+    //     },
+    //     current: "es",
+    // },
     icons: {
         iconfont: "md",
     },

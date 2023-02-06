@@ -12,7 +12,7 @@
           <v-text-field
             class="mt-3"
             dense
-            label="Buscar"
+            label="Search"
             type="text"
             v-model="options.search"
           ></v-text-field>
@@ -89,14 +89,14 @@
                   rounded
                   @click="save"
                 >
-                  Guardar
+                  Save
                 </v-btn>
                 <v-btn
                   color="btn-normal-close no-uppercase mt-3"
                   rounded
                   @click="close"
                 >
-                  Cancelar
+                  Cancel
                 </v-btn>
               </v-col>
             </v-row>
@@ -126,7 +126,7 @@ export default {
       dialog: false,
       headers: [
         { text: "ROLE", value: "name" },
-        { text: "ACCIONES", value: "actions", sortable: false },
+        { text: "ACTIONS", value: "actions", sortable: false },
       ],
       records: [],
       recordsFiltered: [],
@@ -171,7 +171,7 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nuevo registro" : "Editar registro";
+      return this.editedIndex === -1 ? "New record" : "Edit record";
     },
   },
 

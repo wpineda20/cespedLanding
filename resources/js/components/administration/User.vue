@@ -22,7 +22,7 @@
           <v-text-field
             class="mt-3"
             dense
-            label="Buscar"
+            label="Search"
             type="text"
             v-model="search"
             @input="searchValue()"
@@ -164,14 +164,14 @@
                   rounded
                   @click="save"
                 >
-                  Guardar
+                  Save
                 </v-btn>
                 <v-btn
                   color="btn-normal-close no-uppercase mt-3"
                   rounded
                   @click="close"
                 >
-                  Cancelar
+                  Cancel
                 </v-btn>
               </v-col>
             </v-row>
@@ -205,7 +205,7 @@ export default {
         { text: "ROL", value: "rol" },
         { text: "CORREO ELECTRÓNICO", value: "email" },
         { text: "ESTADO", value: "state" },
-        { text: "ACCIONES", value: "actions", sortable: false },
+        { text: "ACTIONS", value: "actions", sortable: false },
       ],
       records: [],
       recordsFiltered: [],
@@ -286,7 +286,7 @@ export default {
   // Validations
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nuevo registro" : "Editar registro";
+      return this.editedIndex === -1 ? "New record" : "Edit record";
     },
   },
 
@@ -323,10 +323,13 @@ export default {
       }
 
       const responses = await Promise.all(requests).catch((error) => {
-        this.updateAlert({
-          response: "error",
-          message: "Error al realizar la acción",
-        }, this);
+        this.updateAlert(
+          {
+            response: "error",
+            message: "Error al realizar la acción",
+          },
+          this
+        );
         this.redirectSessionFinished = verifySessionFinished(
           error.response.status,
           419
@@ -364,10 +367,13 @@ export default {
     async save() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.updateAlert({
-          status: "warning",
-          message: "Por favor, verifique los campos marcados en rojo.",
-        }, this);
+        this.updateAlert(
+          {
+            status: "warning",
+            message: "Por favor, verifique los campos marcados en rojo.",
+          },
+          this
+        );
         return;
       }
 
@@ -380,10 +386,13 @@ export default {
         const { data, status } = await userApi
           .put(`/${edited.id}`, edited)
           .catch((error) => {
-            this.updateAlert({
-              response: "error",
-              message: "Error al realizar la acción",
-            }, this);
+            this.updateAlert(
+              {
+                response: "error",
+                message: "Error al realizar la acción",
+              },
+              this
+            );
 
             this.redirectSessionFinished = verifySessionFinished(
               error.response.status,
@@ -402,10 +411,13 @@ export default {
         const { data, status } = await userApi
           .post(null, this.editedItem)
           .catch((error) => {
-            this.updateAlert({
-              response: "error",
-              message: "Error al realizar la acción",
-            }, this);
+            this.updateAlert(
+              {
+                response: "error",
+                message: "Error al realizar la acción",
+              },
+              this
+            );
             this.close();
             this.redirectSessionFinished = verifySessionFinished(
               error.response.status,
@@ -492,10 +504,13 @@ export default {
           state: state,
         })
         .catch((error) => {
-          this.updateAlert({
-            response: "error",
-            message: "Error al realizar la acción",
-          }, this);
+          this.updateAlert(
+            {
+              response: "error",
+              message: "Error al realizar la acción",
+            },
+            this
+          );
           this.redirectSessionFinished = verifySessionFinished(
             error.response.status,
             419

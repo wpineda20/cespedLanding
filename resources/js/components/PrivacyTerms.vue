@@ -3,7 +3,7 @@
     <p style="text-align: justify; background: white">
       <span
         style="font-size: 15px; font-family: 'Museo sans', serif; color: black"
-        >El Ministerio de Cultura de El Salvador con el fin de salvaguardar la
+        >El Ministerio de Cultura de El Salvador con el fin de salvaSave la
         privacidad de la informaci&oacute;n personal del usuario y/o ciudadano
         en cumplimiento a lo establecido en la Ley de Cultura, cuyo Art. 91
         prescribe que el Estado regular&aacute; el r&eacute;gimen laboral
@@ -275,7 +275,7 @@
         "
       >
         <span style="font-family: 'Museo sans', serif; color: black"
-          >Recopilada de forma autom&aacute;tica al realizar algunas acciones en
+          >Recopilada de forma autom&aacute;tica al realizar algunas ACTIONS en
           el sitio de rentca.cultura.gob.sv</span
         >
       </li>
@@ -483,7 +483,7 @@
     >
       <span style="font-family: 'Museo sans', serif; color: black"
         >Usted nos proporciona informaci&oacute;n cuando realiza alguna de las
-        acciones siguientes:&nbsp;</span
+        ACTIONS siguientes:&nbsp;</span
       >
     </p>
     <ul style="margin-top: 0in" type="disc">
@@ -647,7 +647,7 @@
       >
         <span style="font-family: 'Museo sans', serif; color: black"
           >M&eacute;tricas de rentca.cultura.gob.sv (por ejemplo, la
-          aparici&oacute;n de errores t&eacute;cnicos, las interacciones con las
+          aparici&oacute;n de errores t&eacute;cnicos, las interACTIONS con las
           funciones y el contenido del servicio, las preferencias de
           configuraci&oacute;n).</span
         >
@@ -1006,7 +1006,7 @@
         "
       >
         <span style="font-family: 'Museo sans', serif; color: black"
-          >Realizar un seguimiento de sus acciones realizadas en
+          >Realizar un seguimiento de sus ACTIONS realizadas en
           rentca.cultura.gob.sv.&nbsp;</span
         >
       </li>
@@ -1347,7 +1347,7 @@
     >
       <span style="font-family: 'Museo sans', serif; color: black"
         >Si tiene alguna pregunta sobre c&oacute;mo recopilamos y utilizamos su
-        informaci&oacute;n personal, p&oacute;ngase en contacto con nosotros. 
+        informaci&oacute;n personal, p&oacute;ngase en contacto con nosotros.
         Nuestro sitio tambi&eacute;n incluye opci&oacute;n de
         configuraci&oacute;n que le proporcionan opciones sobre c&oacute;mo se
         est&aacute; utilizando su informaci&oacute;n.&nbsp;</span

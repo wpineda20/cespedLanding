@@ -13,7 +13,6 @@
       :min="min"
       :max="max"
       :type="type"
-      :readonly="readonly"
       @input="updateValue"
       v-mask="mask"
       @keyup="validateText()"
@@ -30,91 +29,100 @@
       </v-icon>
     </v-text-field>
     <v-container class="mb-0 pt-0 my-auto orange-text" v-if="validation.$dirty">
-      <template v-if="!validationsInput.required">
-        <v-row class="pt-0" v-if="!validationsInput.required">
+      <template v-if="!validation.$params.required">
+        <v-row class="pt-0" v-if="!validation.$params.required">
           <p class="mb-0 mt-1 text-muted">(Campo opcional)</p>
         </v-row>
       </template>
       <template>
         <v-row
-          v-if="validation.$error && validationsInput.required"
+          v-if="validation.$error && validation.$params.required"
           class="pt-0"
         >
           <p class="mb-0 mt-1">
             <i class="material-icons">error_outline</i> Campo requerido.
           </p>
         </v-row>
-        <v-row v-if="validationsInput.minLength && !validation.minLength">
+        <v-row v-if="validation.$params.url && !validation.url">
+          <p class="pl-0 mt-1">
+            <i class="material-icons">error_outline</i> Formato de enlace no
+            válido.
+          </p>
+        </v-row>
+        <v-row v-if="validation.$params.minLength && !validation.minLength">
           <p class="pl-0 mt-1">
             <i class="material-icons">error_outline</i> {{ min }} carácter
             mínimo.
           </p>
         </v-row>
-        <v-row v-if="validationsInput.maxLength && !validation.maxLength">
+        <v-row v-if="validation.$params.maxLength && !validation.maxLength">
           <p class="pl-0 pr-0 mt-1">
             <i class="material-icons">error_outline</i> {{ max }} caracteres
             máximo.
           </p>
         </v-row>
-        <v-row v-if="validationsInput.minValue && !validation.minValue">
+        <v-row v-if="validation.$params.minValue && !validation.minValue">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> {{ min }} es el valor
             mínimo.
           </p>
         </v-row>
-        <v-row v-if="validationsInput.maxValue && !validation.maxValue">
+        <v-row v-if="validation.$params.maxValue && !validation.maxValue">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> {{ max }} el valor
             máximo.
           </p>
         </v-row>
-        <v-row v-if="validationsInput.format && !validation.isValidNumber">
+        <v-row v-if="validation.$params.format && !validation.isValidNumber">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> Formato inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.isValidDui && !validation.isValidDui">
+        <v-row v-if="validation.$params.isValidDui && !validation.isValidDui">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> DUI inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.isValidNit && !validation.isValidNit">
+        <v-row v-if="validation.$params.isValidNit && !validation.isValidNit">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> NIT inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.isValidIsss && !validation.isValidIsss">
+        <v-row v-if="validation.$params.isValidIsss && !validation.isValidIsss">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> ISSS inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.isValidAfp && !validation.isValidAfp">
+        <v-row v-if="validation.$params.isValidAfp && !validation.isValidAfp">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> AFP inválido
           </p>
         </v-row>
         <v-row
           v-if="
-            validationsInput.isValidConamypeId && !validation.isValidConamypeId
+            validation.$params.isValidConamypeId &&
+            !validation.isValidConamypeId
           "
         >
           <p class="mt-1">
             <i class="material-icons">error_outline</i> ID de Conamype inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.isValidNrc && !validation.isValidNrc">
+        <v-row v-if="validation.$params.isValidNrc && !validation.isValidNrc">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> NRC inválido
           </p>
         </v-row>
-        <v-row v-if="validationsInput.email && !validation.email">
+        <v-row v-if="validation.$params.email && !validation.email">
           <p class="mt-1">
             <i class="material-icons">error_outline</i> Formato de correo
             electrónico inválido.
           </p>
         </v-row>
         <v-row
-          v-if="validationsInput.isValidPassword && !validation.isValidPassword"
+          v-if="
+            validation.$params.isValidPassword && !validation.isValidPassword
+          "
         >
           <p class="mt-1">
             <i class="material-icons">error_outline</i>
@@ -201,10 +209,6 @@ export default {
     max: {
       type: Number,
       default: 150,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
     },
   },
   watch: {

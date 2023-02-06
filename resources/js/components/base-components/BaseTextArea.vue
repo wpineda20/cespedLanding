@@ -15,17 +15,17 @@
     >
     </v-textarea>
     <div class="pb-0 pt-0 pl-4 pl-1 m-0 my-auto orange-text">
-      <v-row v-if="validationsInput.required && validation.$error">
+      <v-row v-if="validation.$params.required && validation.$error">
         <p class="mb-0 mt-0">
           <i class="material-icons mt-0">error_outline</i> Campo requerido.
         </p>
       </v-row>
-      <v-row v-if="validationsInput.minLength && !validation.minLength">
+      <v-row v-if="validation.$params.minLength && !validation.minLength">
         <p>
           <i class="material-icons">error_outline</i> {{ min }} carácter mínimo.
         </p>
       </v-row>
-      <v-row v-if="validationsInput.maxLength && !validation.maxLength">
+      <v-row v-if="validation.$params.maxLength && !validation.maxLength">
         <p>
           <i class="material-icons">error_outline</i> {{ max }} caracteres
           máximo.
